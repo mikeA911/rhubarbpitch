@@ -7,77 +7,30 @@ import './rhubarb-walker.js';
 // Main JavaScript for Rhubarb Landing Page
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Tab functionality
-    initTabNavigation();
-    
     // Smooth scrolling for navigation links
     initSmoothScrolling();
-    
+
     // Button click handlers
     initButtonHandlers();
-    
+
     // Header scroll effect
     initHeaderScrollEffect();
-    
+
     // Animate elements on scroll
     initScrollAnimations();
 });
 
-// Tab Navigation
-function initTabNavigation() {
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabContents = document.querySelectorAll('.tab-content');
-    
-    tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const targetTab = button.getAttribute('data-tab');
-            
-            // Remove active class from all buttons and contents
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            tabContents.forEach(content => content.classList.remove('active'));
-            
-            // Add active class to clicked button and corresponding content
-            button.classList.add('active');
-            document.getElementById(targetTab).classList.add('active');
-            
-            // Scroll to the tab content
-            document.getElementById(targetTab).scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        });
-    });
-}
-
 // Smooth Scrolling
 function initSmoothScrolling() {
     const navLinks = document.querySelectorAll('.nav a[href^="#"]');
-    
+
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const targetId = link.getAttribute('href');
             const targetElement = document.querySelector(targetId);
-            
+
             if (targetElement) {
-                // Check if target is in a tab content area
-                if (targetId === '#professionals' || targetId === '#founding') {
-                    // Activate the correct tab first
-                    const targetTab = document.querySelector(`[data-tab="${targetId.substring(1)}"]`);
-                    const tabButtons = document.querySelectorAll('.tab-btn');
-                    const tabContents = document.querySelectorAll('.tab-content');
-                    
-                    // Remove active class from all buttons and contents
-                    tabButtons.forEach(btn => btn.classList.remove('active'));
-                    tabContents.forEach(content => content.classList.remove('active'));
-                    
-                    // Add active class to clicked button and corresponding content
-                    if (targetTab) {
-                        targetTab.classList.add('active');
-                        targetElement.classList.add('active');
-                    }
-                }
-                
                 // Scroll to the element
                 targetElement.scrollIntoView({
                     behavior: 'smooth',
@@ -86,19 +39,21 @@ function initSmoothScrolling() {
             }
         });
     });
-    
+
     // Hero CTA buttons
     const heroCtas = document.querySelectorAll('.hero-ctas .btn');
     heroCtas.forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
             const targetSection = button.textContent.includes('Facility') ? 'facilities' : 'professionals';
-            const targetTab = document.querySelector(`[data-tab="${targetSection}"]`);
-            const targetContent = document.getElementById(targetSection);
-            
-            if (targetTab && targetContent) {
-                // Click the tab button
-                targetTab.click();
+            const targetElement = document.getElementById(targetSection);
+
+            if (targetElement) {
+                // Scroll to the section
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
             }
         });
     });
@@ -130,26 +85,35 @@ function initButtonHandlers() {
 // Handle CTA clicks
 function handleCtaClick(button) {
     const buttonText = button.textContent.toLowerCase();
-    
+
     if (buttonText.includes('facility')) {
         // Scroll to facilities section
-        const facilitiesTab = document.querySelector('[data-tab="facilities"]');
-        if (facilitiesTab) {
-            facilitiesTab.click();
+        const facilitiesSection = document.getElementById('facilities');
+        if (facilitiesSection) {
+            facilitiesSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         }
         showNotification('Redirecting to facility signup...', 'success');
     } else if (buttonText.includes('professional')) {
         // Scroll to professionals section
-        const professionalsTab = document.querySelector('[data-tab="professionals"]');
-        if (professionalsTab) {
-            professionalsTab.click();
+        const professionalsSection = document.getElementById('professionals');
+        if (professionalsSection) {
+            professionalsSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         }
         showNotification('Redirecting to professional signup...', 'success');
     } else if (buttonText.includes('founding member')) {
         // Scroll to founding members section
-        const foundingTab = document.querySelector('[data-tab="founding"]');
-        if (foundingTab) {
-            foundingTab.click();
+        const foundingSection = document.getElementById('founding');
+        if (foundingSection) {
+            foundingSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
         }
         showNotification('Redirecting to founding member application...', 'success');
     } else {
@@ -361,24 +325,18 @@ document.addEventListener('keydown', (e) => {
 
 // Print styles support
 window.addEventListener('beforeprint', () => {
-    // Expand all tabs for printing
-    const tabContents = document.querySelectorAll('.tab-content');
-    tabContents.forEach(content => {
-        content.style.display = 'block';
-        content.style.pageBreakBefore = 'always';
+    // Ensure all sections are visible for printing
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        section.style.pageBreakBefore = 'always';
     });
 });
 
 window.addEventListener('afterprint', () => {
-    // Restore tab functionality after printing
-    const tabContents = document.querySelectorAll('.tab-content');
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    
-    tabContents.forEach((content, index) => {
-        if (!tabButtons[index].classList.contains('active')) {
-            content.style.display = 'none';
-        }
-        content.style.pageBreakBefore = '';
+    // Restore normal styling after printing
+    const sections = document.querySelectorAll('section');
+    sections.forEach(section => {
+        section.style.pageBreakBefore = '';
     });
 });
 

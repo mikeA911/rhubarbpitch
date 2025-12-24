@@ -1,0 +1,18 @@
+[
+  {
+    "slug": "resilience-of-rhubarb",
+    "title": "The Resilience of Rhubarb: Lessons for Rural Health",
+    "date": "2025-12-23",
+    "excerpt": "Why we chose the rhubarb plant as our symbol for rural healthcare innovation.",
+    "file": "/blog/resilience-of-rhubarb.md",
+    "thumbnail": "/generalRhubarb.png"
+  },
+  {
+    "slug": "just-use-ai",
+    "title": "The Problem with 'Just Use AI' in Healthcare",
+    "date": "2025-12-24",
+    "excerpt": "Why Rhubarb chose expert-curated knowledge over generic AI models for rural healthcare solutions.",
+    "file": "/blog/JustUseAi.md",
+    "thumbnail": "/fightingRhubarb.png"
+  }
+]

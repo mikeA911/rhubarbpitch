@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sage - Rhubarb | Rural Health Bridge</title>
+    <meta name="description" content="Insights, stories, and updates from the Rural Health Bridge team.">
+    <link rel="icon" type="image/png" href="/rhubarb_favicon.png">
+</head>
+<body>
+    <!-- Simple Sage Header -->
+    <header class="blog-header">
+        <div class="container">
+            <a href="index.html" class="back-button">
+                ← Back to Rhubarb
+            </a>
+            <div class="sage-header-content">
+                <img src="/Sage.png" alt="Sage" class="sage-icon">
+                <h1 class="blog-title">Sage</h1>
+            </div>
+            <p class="blog-subtitle">🌱 Insights, Stories, and Updates from the Rural Health Bridge</p>
+        </div>
+    </header>
+
+    <!-- Blog Section with Home Page Styling -->
+    <section id="blog" class="main-content blog-content">
+        <div class="container">
+            <div class="blog-controls">
+                <div class="search-container">
+                    <input type="text" id="blog-search" placeholder="Search posts by keyword...">
+                    <span class="search-icon">🔍</span>
+                </div>
+            </div>
+
+            <div id="blog-grid" class="blog-grid">
+                <!-- Blog posts will be rendered here -->
+                <div class="loading">Loading posts...</div>
+            </div>
+
+            <div id="post-detail" class="post-detail" style="display: none;">
+                <button id="back-to-blog" class="btn btn-outline">← Back to Blog</button>
+                <div id="post-content" class="post-content-area"></div>
+
+                <div class="post-interactions">
+                    <button id="like-button" class="btn btn-secondary">
+                        ❤️ Like <span id="like-count">0</span>
+                    </button>
+                    <span class="view-count">👁️ <span id="view-count">0</span> views</span>
+                </div>
+
+                <div class="comments-section">
+                    <h3>Comments</h3>
+                    <div id="comments-list"></div>
+                    <form id="comment-form" class="comment-form">
+                        <input type="text" id="comment-name" placeholder="Your Name" required>
+                        <textarea id="comment-content" placeholder="Add a comment..." required></textarea>
+                        <button type="submit" class="btn btn-primary">Post Comment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Rhubarb Section -->
+    <section class="why-rhubarb-section">
+        <div class="container">
+            <h2>🌱 WHY RHUBARB?</h2>
+            <div class="about-grid">
+                <div class="about-item">
+                    <h4>Hardy & resilient</h4>
+                    <p>Like rural healthcare providers</p>
+                </div>
+                <div class="about-item">
+                    <h4>Grows where others won't</h4>
+                    <p>Thrives in tough conditions</p>
+                </div>
+                <div class="about-item">
+                    <h4>Brings communities together</h4>
+                    <p>Shared over fences and at potlucks</p>
+                </div>
+                <div class="about-item">
+                    <h4>Substance over flash</h4>
+                    <p>Practical, dependable, nourishing</p>
+                </div>
+            </div>
+            <p class="about-tagline">Join us in bridging the rural health gap. Not with fancy solutions, but with real expertise, real connections, and real impact.</p>
+            <p class="about-slogan">Rhubarb: Where rural health takes root. 🌉</p>
+            <div class="rhubarb-decorations">
+                <img src="/HarvestRhubarb.png" alt="Harvest Rhubarb" class="rhubarb-decoration" title="Harvest Rhubarb" data-tooltip="Harvest Rhubarb">
+            </div>
+        </div>
+    </section>
+
+    <!-- Rhubarb Walker -->
+    <rhubarb-walker></rhubarb-walker>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Rhubarb</h4>
+                    <p>Rural Health Bridge</p>
+                    <p>Connecting Rural Health Communities</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <p><a href="index.html#facilities">For Facilities</a></p>
+                    <p><a href="index.html#professionals">For Professionals</a></p>
+                    <p><a href="index.html#founding">Founding Members</a></p>
+                    <p><a href="index.html#about">About</a></p>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <p>📞 1-800-RHUBARB</p>
+                    <p>📧 info@rhubarb.health</p>
+                    <p>🌐 www.rhubarb.health</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Rhubarb - Rural Health Bridge. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/blog-page.js"></script>
+</body>
+</html>
